@@ -1,0 +1,421 @@
+/* Reset and Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Deep, cinematic dark blue */
+    background-color: #051024;
+    color: #ffffff;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    overflow-x: hidden;
+    scroll-behavior: auto;
+    /* Handled by GSAP if needed, but smooth native scroll is okay too */
+}
+
+/* Background Canvas */
+#webgl-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    display: block;
+    /* Optional: If canvas doesn't need its own pointer events right away */
+    /* pointer-events: none; */
+}
+
+/* 
+ * DOM Overlay
+ * pointer-events: none allows mouse interactions to pass through to the 3D canvas 
+ */
+#dom-overlay {
+    position: relative;
+    width: 100%;
+    z-index: 10;
+    pointer-events: none;
+}
+
+/* Re-enable pointer events for interactive and readable elements */
+#dom-overlay h1,
+#dom-overlay h2,
+#dom-overlay h3,
+#dom-overlay h4,
+#dom-overlay h5,
+#dom-overlay h6,
+#dom-overlay p,
+#dom-overlay span,
+#dom-overlay a,
+#dom-overlay button,
+#dom-overlay input,
+#dom-overlay textarea {
+    pointer-events: auto;
+}
+
+/* Panel Sections */
+.panel {
+    width: 100%;
+    height: 100vh;
+    /* Takes up full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 2rem;
+}
+
+/* Typography and polish */
+.content {
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content h1 {
+    font-size: 4.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+.content h2 {
+    font-size: 3.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+}
+
+.content p {
+    font-size: 1.25rem;
+    max-width: 600px;
+    margin-bottom: 2rem;
+    opacity: 0.85;
+    line-height: 1.6;
+}
+
+/* Interactive Elements */
+a {
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+    padding-bottom: 0.2rem;
+    transition: border-color 0.3s ease;
+}
+
+a:hover {
+    border-color: #ffffff;
+}
+
+button {
+    background: transparent;
+    color: #ffffff;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+button:hover {
+    background: #ffffff;
+    color: #051024;
+    border-color: #ffffff;
+}
+
+/* Glowing Typography */
+.glow-text {
+    color: #ffffff;
+    text-shadow: 0 0 10px rgba(68, 170, 255, 0.5), 0 0 20px rgba(68, 170, 255, 0.3), 0 0 30px rgba(68, 170, 255, 0.1);
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: #44aaff;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+/* Minimalist Skills Flexbox Layout */
+.skills-flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    width: 100%;
+    margin-top: 2.5rem;
+    max-width: 800px;
+}
+
+.skill-card {
+    padding: 1rem 2rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #ffffff;
+    border-radius: 8px;
+    letter-spacing: 0.05em;
+    cursor: default;
+    /* Redefine glassmorphism specifically for these to feel like clean badges */
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-3px);
+    background: rgba(68, 170, 255, 0.05);
+    border-color: rgba(68, 170, 255, 0.6);
+    box-shadow: 0 0 15px rgba(68, 170, 255, 0.3);
+    text-shadow: 0 0 10px rgba(68, 170, 255, 0.8);
+}
+
+/* Projects Grid */
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+/* Glassmorphism Cards */
+.glassmorphism {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2.5rem;
+    text-align: left;
+    transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
+}
+
+.projects-grid .glassmorphism:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(68, 170, 255, 0.4);
+}
+
+.glassmorphism h3 {
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+    color: #ffffff;
+}
+
+.glassmorphism p {
+    font-size: 1.1rem;
+    margin-bottom: 0;
+    opacity: 0.8;
+}
+
+/* Education Layout */
+.education-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.education-card {
+    padding: 2.5rem;
+}
+
+.education-card h3 {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+.education-card .academy-name {
+    color: #44aaff;
+    font-size: 1rem;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Timeline */
+.timeline {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 2rem;
+    border-left: 2px solid rgba(68, 170, 255, 0.3);
+    padding-left: 2rem;
+    text-align: left;
+}
+
+.timeline-item {
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2.45rem;
+    top: 0.25rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #44aaff;
+    box-shadow: 0 0 10px #44aaff;
+}
+
+.timeline-item h4 {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 0.25rem;
+}
+
+.timeline-item span {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1rem;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.timeline-item p {
+    font-size: 1.05rem;
+    opacity: 0.85;
+    line-height: 1.5;
+    margin-top: 0.25rem;
+}
+
+/* Contact Form Styles */
+.contact-form {
+    width: 100%;
+    min-width: 320px;
+    max-width: 500px;
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    padding: 2.5rem;
+    pointer-events: auto;
+    /* Ensure container can receive clicks over canvas */
+}
+
+.form-group {
+    width: 100%;
+    position: relative;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-family: inherit;
+    outline: none;
+    transition: all 0.3s ease;
+    pointer-events: auto;
+    box-sizing: border-box;
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    background: rgba(77, 194, 255, 0.05);
+    /* #4dc2ff with low opacity */
+    border-color: rgba(77, 194, 255, 0.8);
+    box-shadow: 0 0 15px rgba(77, 194, 255, 0.4);
+}
+
+.contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.submit-btn {
+    margin-top: 0.5rem;
+    background: rgba(77, 194, 255, 0.1);
+    border: 1px solid rgba(77, 194, 255, 0.5);
+    /* #4dc2ff */
+    color: #4dc2ff;
+    padding: 1rem 2rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    pointer-events: auto;
+}
+
+.submit-btn:hover {
+    background: #4dc2ff;
+    color: #051024;
+    border-color: #4dc2ff;
+    box-shadow: 0 0 20px rgba(77, 194, 255, 0.6);
+}
+
+/* Social Links Flexbox */
+.social-links {
+    display: flex;
+    gap: 2rem;
+    margin-top: 3rem;
+    justify-content: center;
+    pointer-events: auto;
+}
+
+.social-links a {
+    color: rgba(255, 255, 255, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.social-links a:hover {
+    color: #4dc2ff;
+    transform: scale(1.15);
+    filter: drop-shadow(0 0 8px rgba(77, 194, 255, 0.8));
+    border-color: transparent;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+
+    .projects-grid,
+    .education-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .content h1 {
+        font-size: 3.5rem;
+    }
+
+    .content h2 {
+        font-size: 2.5rem;
+    }
+
+    .contact-form {
+        padding: 2rem 1.5rem;
+    }
+}

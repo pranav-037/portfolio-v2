@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pranav's Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+
+<body>
+    <canvas id="webgl-canvas"></canvas>
+
+    <main id="dom-overlay">
+        <!-- Hero Section -->
+        <section class="panel hero-section">
+            <div class="content">
+                <h1 class="glow-text">Creative Developer</h1>
+                <p class="subtitle">Fusing logic with immersive web architecture.</p>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="panel about-section">
+            <div class="content">
+                <h2 class="glow-text">About Me</h2>
+                <p>Hi, I'm Pranav. I’m a technology-driven student focused on building at the intersection of AI, systems, and real-world impact. 
+                    My core interests lie in machine learning, AI research, data science, and scalable web architectures that bring intelligent systems to life. <br> <br>
+                    I approach problems with a research mindset and an engineer’s discipline blending mathematical intuition, experimental thinking, and production level implementation. 
+                    Whether it’s optimizing algorithms, designing full-stack AI-powered platforms, or working with modern tools like React, Supabase, and ML frameworks, I aim to build systems that are not just functional but robust, elegant, and scalable.
+                </p>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="panel education-section">
+            <div class="content">
+                <h2 class="glow-text">Education</h2>
+                <div class="education-grid">
+                    <div class="education-card glassmorphism">
+                        <h3>Artifical Intelligence and Data Science</h3>
+                        <span class="academy-name">Nxtwave Institute of Advanced Technology</span>
+                        <p>Focus on spatial computing, dynamic algorithms, and interactive media.</p>
+                    </div>
+                    <div class="education-card glassmorphism">
+                        <h3>Higher Secondary Education (Class XII)</h3>
+                        <span class="academy-name">Lal Bahadur Shastri Mahavidyalay</span>
+                        <p>Physics and mathematics trained me to think in first principles and reason with precision.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="panel skills-section">
+            <div class="content">
+                <h2 class="glow-text">Skills & Tech Stack</h2>
+                <div class="skills-flex">
+                    <div class="skill-card glassmorphism">React</div>
+                    <div class="skill-card glassmorphism">C++</div>
+                    <div class="skill-card glassmorphism">MongoDB</div>
+                    <div class="skill-card glassmorphism">Python</div>
+                    <div class="skill-card glassmorphism">UI/UX Design</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section class="panel projects-section">
+            <div class="content">
+                <h2 class="glow-text">Projects</h2>
+                <div class="projects-grid">
+                    <div class="project-card glassmorphism">
+                        <h3>LocalFlow</h3>
+                        <p>Micro-logistics routing app optimizing gig delivery in tier-2/3 cities.</p>
+                    </div>
+                    <div class="project-card glassmorphism">
+                        <h3>Prompt2Course</h3>
+                        <p>Full-stack AI application generating personalized curriculums, curated videos, and interactive practice quizzes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section id="experience" class="panel experience-section">
+            <div class="content">
+                <h2 class="glow-text">Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <h4>AI Architect</h4>
+                        <span>2029 - Present</span>
+                        <p>Architecting immersive 3D web experiences using Three.js and complex GSAP animation
+                            pipelines.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Frontend Engineer</h4>
+                        <span>2025 - 2029</span>
+                        <p>Built highly performant React applications with sophisticated state management and modern
+                            aesthetics.</p>
+                    </div>
+                    <div class="timeline-item">
+                        <h4>Chess Player</h4>
+                        <span>2024 - 2025</span>
+                        <p>1108 elo</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="panel contact-section">
+            <div class="content">
+                <h2 class="glow-text">Let's Connect</h2>
+
+                <form class="contact-form glassmorphism" action="https://formspree.io/f/xjgendrp" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" placeholder="Message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Send Message</button>
+                </form>
+
+                <div class="social-links">
+                    <a href="https://github.com/pranav-037" target="_blank" rel="noopener noreferrer"
+                        aria-label="GitHub">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22">
+                            </path>
+                        </svg>
+                    </a>
+                    <a href="https://linkedin.com/in/pranav-thakur-777xdmvp" target="_blank" rel="noopener noreferrer"
+                        aria-label="LinkedIn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z">
+                            </path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                    </a>
+                    <a href="https://x.com/blunder_guy3" target="_blank" rel="noopener noreferrer"
+                        aria-label="X (Twitter)">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
+                            <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- JavaScript logic will go here -->
+    <script src="main.js"></script>
+</body>
+
+</html>
