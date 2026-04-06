@@ -121,7 +121,10 @@
             <div class="content">
                 <h2 class="glow-text">Let's Connect</h2>
 
-                <form class="contact-form glassmorphism" action="https://formspree.io/f/xjgendrp" method="POST">
+                <form id="contactForm" class="contact-form glassmorphism" netlify name="contact">
+                    <!-- Required hidden field for Netlify -->
+                    <input type="hidden" name="form-name" value="contact">
+                    
                     <div class="form-group">
                         <input type="text" name="name" placeholder="Name" required>
                     </div>
@@ -133,6 +136,9 @@
                     </div>
                     <button type="submit" class="submit-btn">Send Message</button>
                 </form>
+
+                <!-- This is where the thank you message will appear -->
+                <div id="formStatus" style="margin-top: 1rem;"></div>
 
                 <div class="social-links">
                     <a href="https://github.com/pranav-037" target="_blank" rel="noopener noreferrer"
@@ -169,6 +175,38 @@
 
     <!-- JavaScript logic will go here -->
     <script src="main.js"></script>
+    <script>
+        const form = document.getElementById('contactForm');
+        const statusDiv = document.getElementById('formStatus');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();  // Prevents page reload / redirect
+
+            // Collect form data
+            const formData = new FormData(form);
+            
+            try {
+            // Send to Netlify's built-in form endpoint
+            const response = await fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(formData).toString()
+            });
+            
+            if (response.ok) {
+                // Show thank you message
+                statusDiv.innerHTML = '<p style="color: #4CAF50; font-weight: bold;">✓ Thanks! Your message has been sent.</p>';
+                form.reset();  // optional: clear the form
+                // Optional: hide the message after 5 seconds
+                setTimeout(() => { statusDiv.innerHTML = ''; }, 5000);
+            } else {
+                throw new Error('Form submission failed');
+            }
+            } catch (error) {
+            statusDiv.innerHTML = '<p style="color: #f44336;">❌ Oops! Something went wrong. Please try again.</p>';
+            }
+        });
+    </script>
 </body>
 
 </html>
