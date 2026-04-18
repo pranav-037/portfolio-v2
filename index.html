@@ -79,16 +79,28 @@
             <div class="content">
                 <h2 class="glow-text">Projects</h2>
                 <div class="projects-grid">
-                    <a href="https://flask-task-manager-app-pji1.onrender.com/" target="_blank" rel="noopener noreferrer">
+                    <a href="https://rag-pdf-groq.streamlit.app/" target="_blank" rel="noopener noreferrer">
                         <div class="project-card glassmorphism">
-                        <h3>Task Manager</h3>
-                        <p>Flask task manager with user authentication, CRUD operations, and SQLite database.</p>
+                        <h3>PDFast</h3>
+                        <p>RAG-powered PDF Q&A tool built with Streamlit, LangChain, and Groq's LPU API using local all-MiniLM-L6-v2 embeddings for zero-cost vector search.</p>
                     </div>
                     </a>
                     <a href="https://prompt-to-course-chi.vercel.app/" target="_blank" rel="noopener noreferrer">
                         <div class="project-card glassmorphism">
                             <h3>Prompt2Course</h3>
-                            <p>Transform any prompt into an AI curriculum with YouTube videos, quizzes, and Murf AI TTS.</p>
+                            <p>AI-driven educational platform that converts natural language prompts into structured multi-module courses with regional language support.</p>
+                        </div>
+                    </a>
+                    <a href="https://smartscamdetector.streamlit.app/" target="_blank" rel="noopener noreferrer">
+                        <div class="project-card glassmorphism">
+                            <h3>Smart Scam Detector</h3>
+                            <p>Analyzes messages for spammy patterns like keywords, ALL CAPS, and exclamation marks, then classifies as SPAM or HAM.</p>
+                        </div>
+                    </a>
+                    <a href="https://flask-task-manager-app-pji1.onrender.com/" target="_blank" rel="noopener noreferrer">
+                        <div class="project-card glassmorphism">
+                            <h3>Task Manager</h3>
+                            <p>Flask task manager with user authentication, CRUD operations, and SQLite database.</p>
                         </div>
                     </a>
                 </div>
@@ -109,7 +121,7 @@
                     <div class="timeline-item">
                         <h4>Backend Developer</h4>
                         <span>Dec - 2025</span>
-                        <p>Collaborated with a team of 4 at Vibe Hack 2.0 to design a personalized study assistant using Gemini 2.5 flash.</p>
+                        <p>Lead a team of 4 at Vibe Hack 2.0 to design a personalized study assistant using Gemini 2.5 flash.</p>
                         
                     </div>
                 </div>
@@ -121,10 +133,10 @@
             <div class="content">
                 <h2 class="glow-text">Let's Connect</h2>
 
-                <form id="contactForm" class="contact-form glassmorphism" netlify name="contact">
-                    <!-- Required hidden field for Netlify -->
-                    <input type="hidden" name="form-name" value="contact">
-                    
+                <form class="contact-form glassmorphism" action="https://formsubmit.co/pranavthakur@gmail.com" method="POST">
+                    <!-- Add this hidden field for custom redirect -->
+                    <input type="hidden" name="_next" value="https://your-website.com/thank-you.html">
+
                     <div class="form-group">
                         <input type="text" name="name" placeholder="Name" required>
                     </div>
@@ -136,9 +148,6 @@
                     </div>
                     <button type="submit" class="submit-btn">Send Message</button>
                 </form>
-
-                <!-- This is where the thank you message will appear -->
-                <div id="formStatus" style="margin-top: 1rem;"></div>
 
                 <div class="social-links">
                     <a href="https://github.com/pranav-037" target="_blank" rel="noopener noreferrer"
@@ -175,38 +184,6 @@
 
     <!-- JavaScript logic will go here -->
     <script src="main.js"></script>
-    <script>
-        const form = document.getElementById('contactForm');
-        const statusDiv = document.getElementById('formStatus');
-
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();  // Prevents page reload / redirect
-
-            // Collect form data
-            const formData = new FormData(form);
-            
-            try {
-            // Send to Netlify's built-in form endpoint
-            const response = await fetch('/', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: new URLSearchParams(formData).toString()
-            });
-            
-            if (response.ok) {
-                // Show thank you message
-                statusDiv.innerHTML = '<p style="color: #4CAF50; font-weight: bold;">✓ Thanks! Your message has been sent.</p>';
-                form.reset();  // optional: clear the form
-                // Optional: hide the message after 5 seconds
-                setTimeout(() => { statusDiv.innerHTML = ''; }, 5000);
-            } else {
-                throw new Error('Form submission failed');
-            }
-            } catch (error) {
-            statusDiv.innerHTML = '<p style="color: #f44336;">❌ Oops! Something went wrong. Please try again.</p>';
-            }
-        });
-    </script>
 </body>
 
 </html>
